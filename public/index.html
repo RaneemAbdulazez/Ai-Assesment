@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Compass Assessment</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <span class="logo">🧭</span>
+        <div class="titles">
+          <h1>AI Compass</h1>
+          <p class="subtitle">Guided AI Opportunity Assessment</p>
+        </div>
+      </div>
+      <nav class="phase-progress" aria-label="Assessment progress">
+        <button class="phase-pill active" data-phase="phase1">Phase 1</button>
+        <button class="phase-pill" data-phase="phase2" disabled>Phase 2</button>
+        <button class="phase-pill" data-phase="phase3" disabled>Phase 3</button>
+        <button class="phase-pill" data-phase="phase4" disabled>Phase 4</button>
+        <button class="phase-pill" data-phase="phase5" disabled>Phase 5</button>
+        <button class="phase-pill" data-phase="phase6" disabled>Phase 6</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="phase1" class="phase-view active" aria-labelledby="phase1-title">
+        <header class="section-header">
+          <h2 id="phase1-title">Phase 1 – Company Overview</h2>
+          <p class="section-subtitle">
+            Capture the key context about your organisation before exploring AI opportunities.
+          </p>
+        </header>
+
+        <form id="company-overview-form" novalidate>
+          <div class="form-grid">
+            <label class="field">
+              <span>Company Name</span>
+              <input type="text" name="companyName" required placeholder="Your company" />
+            </label>
+
+            <label class="field">
+              <span>Industry</span>
+              <div class="chip-group" role="group" aria-label="Industry">
+                <label class="chip">
+                  <input type="radio" name="industry" value="Technology" required />
+                  <span>Technology</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="industry" value="Professional Services" />
+                  <span>Professional Services</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="industry" value="Real Estate" />
+                  <span>Real Estate</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="industry" value="Healthcare" />
+                  <span>Healthcare</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="industry" value="Retail" />
+                  <span>Retail</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="industry" value="Manufacturing" />
+                  <span>Manufacturing</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="industry" value="Education" />
+                  <span>Education</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="industry" value="Non-Profit" />
+                  <span>Non-Profit</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="industry" value="Other" />
+                  <span>Other</span>
+                </label>
+                <label class="field other-industry">
+                  <span class="sr-only">Other Industry</span>
+                  <input type="text" name="industryOther" placeholder="Specify industry" />
+                </label>
+              </div>
+            </label>
+
+            <label class="field">
+              <span>Team Size</span>
+              <div class="chip-group" role="group" aria-label="Team size">
+                <label class="chip">
+                  <input type="radio" name="teamSize" value="1-5" required />
+                  <span>1–5</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="teamSize" value="6-15" />
+                  <span>6–15</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="teamSize" value="16-50" />
+                  <span>16–50</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="teamSize" value="51-200" />
+                  <span>51–200</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="teamSize" value="200+" />
+                  <span>200+</span>
+                </label>
+              </div>
+            </label>
+
+            <label class="field">
+              <span>Years in Operation</span>
+              <div class="chip-group" role="group" aria-label="Years in operation">
+                <label class="chip">
+                  <input type="radio" name="yearsInOperation" value="<1" required />
+                  <span>&lt;1</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="yearsInOperation" value="1-3" />
+                  <span>1–3</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="yearsInOperation" value="4-7" />
+                  <span>4–7</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="yearsInOperation" value="8-15" />
+                  <span>8–15</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="yearsInOperation" value="16+" />
+                  <span>16+</span>
+                </label>
+              </div>
+            </label>
+
+            <label class="field">
+              <span>Main Products or Services</span>
+              <textarea name="products" rows="3" placeholder="Describe your core offerings"></textarea>
+            </label>
+          </div>
+
+          <section class="card" aria-labelledby="department-title">
+            <header class="card-header">
+              <div>
+                <h3 id="department-title">Departments</h3>
+                <p>Add each department that will be assessed in later phases.</p>
+              </div>
+              <button type="button" class="button" id="add-department-btn">Add Department</button>
+            </header>
+
+            <div class="department-input">
+              <label class="field inline">
+                <span>Department Name</span>
+                <input type="text" id="department-name-input" placeholder="e.g. Sales" />
+              </label>
+              <button type="button" class="button secondary" id="save-department-btn">Save</button>
+            </div>
+
+            <ul id="department-list" class="department-list" aria-live="polite"></ul>
+          </section>
+
+          <label class="field">
+            <span>Primary Customer Type</span>
+            <div class="chip-group" role="group" aria-label="Primary customer type">
+              <label class="chip">
+                <input type="radio" name="customerType" value="B2B" />
+                <span>B2B</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="customerType" value="B2C" />
+                <span>B2C</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="customerType" value="Government" />
+                <span>Government</span>
+              </label>
+              <label class="chip">
+                <input type="radio" name="customerType" value="Internal" />
+                <span>Internal (shared services)</span>
+              </label>
+            </div>
+          </label>
+
+          <fieldset class="field">
+            <legend>Top 3 Business Goals for the Next 3 Years</legend>
+            <div class="chip-group" role="group" aria-label="Business goals">
+              <label class="chip">
+                <input type="checkbox" name="businessGoals" value="Increase revenue" />
+                <span>Increase revenue</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" name="businessGoals" value="Improve efficiency" />
+                <span>Improve efficiency</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" name="businessGoals" value="Enhance customer experience" />
+                <span>Enhance customer experience</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" name="businessGoals" value="Expand into new markets" />
+                <span>Expand into new markets</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" name="businessGoals" value="Innovate products/services" />
+                <span>Innovate products/services</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" name="businessGoals" value="Strengthen compliance" />
+                <span>Strengthen compliance</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <label class="field">
+            <span>Main Operational Challenges or Pain Points</span>
+            <textarea name="challenges" rows="3" placeholder="Where do you experience the most friction?"></textarea>
+          </label>
+
+          <div class="form-grid">
+            <label class="field">
+              <span>Decision Maker for Technology or Automation</span>
+              <input type="text" name="decisionMaker" placeholder="Name and role" />
+            </label>
+            <label class="field">
+              <span>Email (optional, to receive a summary)</span>
+              <input type="email" name="email" placeholder="name@company.com" />
+            </label>
+          </div>
+
+          <footer class="form-footer">
+            <div class="status" id="phase1-status" role="status" aria-live="polite"></div>
+            <button type="submit" class="button primary">Save Company Overview</button>
+          </footer>
+        </form>
+      </section>
+
+      <section id="phase2" class="phase-view" aria-labelledby="phase2-title" hidden>
+        <header class="section-header">
+          <h2 id="phase2-title">Phase 2 – Operational Mapping</h2>
+          <p class="section-subtitle">
+            Phase 2 functionality will unlock after completing the company overview.
+          </p>
+        </header>
+      </section>
+    </main>
+
+    <template id="department-item-template">
+      <li class="department-card">
+        <div class="department-card__header">
+          <h4 class="department-card__title"></h4>
+          <button type="button" class="icon-button remove" title="Remove department">&times;</button>
+        </div>
+        <p class="department-card__caption">Ready for assessment in Phase 2.</p>
+      </li>
+    </template>
+
+    <div class="toast" id="toast" role="alert" aria-live="assertive" hidden></div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
